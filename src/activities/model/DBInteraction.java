@@ -13,7 +13,7 @@ public class DBInteraction {
 
 	//Constructor that connects to the Database
 	public DBInteraction () throws SQLException {
-		String url="jdbc:mysql://localhost/sporting_manager";
+		String url="jdbc:mysql://localhost/practica_dat";
         try {
             Class.forName("com.mysql.jdbc.Driver");
         }
@@ -23,7 +23,7 @@ public class DBInteraction {
         }
         try {
             System.out.println("Trying to connect...");
-            con = DriverManager.getConnection (url, "root", "password");
+            con = DriverManager.getConnection (url, "root", "root");
             System.out.println("Connected!");
 		}
 		catch(SQLException ex) {
