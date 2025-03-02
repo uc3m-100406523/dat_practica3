@@ -142,19 +142,25 @@ public class Control {
                         u.listactpav();
                         break;
                     case 6:
-                        u.listactname();
+                        u.listactbydates();
                         break;
                     case 7:
-                        u.listactusr(login);
+                        u.listactname();
                         break;
                     case 8:
-                        u.regactivity(login);
+                        u.listactusr(login);
                         break;
                     case 9:
+                        u.regactivity(login);
+                        break;
+                    case 10:
                         u.unregactivity(login);
                         break;
+                    case 11:
+                        u.listUsersWithMinCommonActivities(login);
+                        break;
                     // Exit option end the loop
-                    case 10:
+                    case 12:
                         end = true;
                         break;
                     // The selected option is not on the menu

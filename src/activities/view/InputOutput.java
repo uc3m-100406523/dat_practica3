@@ -127,11 +127,13 @@ public class InputOutput {
         System.out.println("3. List activities for which there are currently free places");
         System.out.println("4. List activities for which there are free places costing less than a certain amount");
         System.out.println("5. List activities for which there are free places that take place in a certain pavillion");
-        System.out.println("6. Show information about a particular activity");
-        System.out.println("7. List the names of the activities to which I am subscribed");
-        System.out.println("8. Subscribe to an activity");
-        System.out.println("9. Unsubscribe from an activity");
-        System.out.println("10. Exit the application ");
+        System.out.println("6. List activities in a date range");
+        System.out.println("7. Show information about a particular activity");
+        System.out.println("8. List the names of the activities to which I am subscribed");
+        System.out.println("9. Subscribe to an activity");
+        System.out.println("10. Unsubscribe from an activity");
+        System.out.println("11. List users with whom you share activities");
+        System.out.println("12. Exit the application ");
     }
 
     public void writedelusr() {
@@ -181,6 +183,10 @@ public class InputOutput {
     public void writepavlocation() {
         System.out.println("Introduce the pavillion location");
     }
+
+    public void write(String message) {
+        System.out.println(message);
+	}
 
     public void writeactid() {
         System.out.println("Introduce the id of the activity to which you wish to subscribe or unsubscribe");

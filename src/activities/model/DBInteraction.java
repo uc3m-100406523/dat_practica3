@@ -38,6 +38,13 @@ public class DBInteraction {
         q.close();
 		con.close();
 	}
+	
+    // Method to retrieve activities between two dates
+    public ArrayList listactbydates(String startDate, String endDate) throws Exception {
+        String selection = "SELECT * FROM ACTIVITIES WHERE START_DATE BETWEEN '" + startDate + "' AND '" + endDate + "'";
+        ArrayList data = this.listactivities(selection);
+        return data;
+    }
 
 	//Method to add a new user to the CLIENTS table
 	public void addusr(String login, String pwd, String name, String surname, String address, String phone)
@@ -191,6 +198,28 @@ public class DBInteraction {
 			data.add(new Pavillion(name, location));
        }
 	   return (data);
+	}
+
+	public ArrayList listUsersWithMinCommonActivities(String login, int minActivities) throws Exception {
+		String selection = "SELECT c.LOGIN, c.NAME, c.SURNAME " +
+						"FROM CLIENTS c " +
+						"JOIN SUBSCRIPTIONS s1 ON c.LOGIN = s1.CLIENT_LOGIN " +
+						"JOIN SUBSCRIPTIONS s2 ON s1.ACTIVITY_ID = s2.ACTIVITY_ID " +
+						"WHERE s2.CLIENT_LOGIN = '" + login + "' AND c.LOGIN <> '" + login + "' " +
+						"GROUP BY c.LOGIN, c.NAME, c.SURNAME " +
+						"HAVING COUNT(s1.ACTIVITY_ID) >= " + minActivities;
+		
+		ArrayList data = new ArrayList();
+		ResultSet rs = q.doSelect(selection);
+		
+		while (rs.next()) {
+			String userLogin = rs.getString(1);
+			String userName = rs.getString(2);
+			String userSurname = rs.getString(3);
+			data.add(new Client(userLogin, "", userName, userSurname, "", ""));
+		}
+		
+		return data;
 	}
 
 	//This method subscribes a client to a specific activity
