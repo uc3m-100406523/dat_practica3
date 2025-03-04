@@ -62,6 +62,34 @@ public class ManagerActions {
         db.addact(name, description, initial, price, pavname, total, occ);
     }
 
+    // Registra la misma actividad varias veces
+    public void iteraddact() throws Exception {
+
+        io.writeactname();
+        String name = io.read();
+        io.writeactdescription();
+        String description = io.read();
+        io.writeactinitiallist();
+        String initialListStr = io.read();
+        String initialList[] = initialListStr.split(",");
+        String initial;
+        io.writeactprice();
+        String prices = io.read();
+        float price = Float.parseFloat(prices);
+        io.writeactpavname();
+        String pavname = io.read();
+        io.writeacttotal();
+        String totals = io.read();
+        int total = Integer.parseInt(totals);
+        io.writeactocc();
+        String occs = io.read();
+        int occ = Integer.parseInt(occs);
+        for(int i=0;i<initialList.length;i++) {
+            initial = initialList[i];
+            db.addact(name, description, initial, price, pavname, total, occ);
+        }
+    }
+
     public void delact() throws Exception {
 
         io.writedelact();

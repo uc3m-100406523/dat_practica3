@@ -111,14 +111,15 @@ public class InputOutput {
         System.out.println("1. Add Client");
         System.out.println("2. Delete Client");
         System.out.println("3. Add Activity");
-        System.out.println("4. Delete Activity");
-        System.out.println("5. Add Pavillion");
-        System.out.println("6. Delete Pavillion");
-        System.out.println("7. List all Clients");
-        System.out.println("8. List all Activities");
-        System.out.println("9. List all Pavillions");
-        System.out.println("10. List the activities for which there are currently free places");
-        System.out.println("11. Exit the application");
+        System.out.println("4. Add Activity to several dates");
+        System.out.println("5. Delete Activity");
+        System.out.println("6. Add Pavillion");
+        System.out.println("7. Delete Pavillion");
+        System.out.println("8. List all Clients");
+        System.out.println("9. List all Activities");
+        System.out.println("10. List all Pavillions");
+        System.out.println("11. List the activities for which there are currently free places");
+        System.out.println("12. Exit the application");
     }
 
     public void writeClient() {
@@ -150,6 +151,10 @@ public class InputOutput {
 
     public void writeactinitial() {
         System.out.println("Introduce the start day of the activity");
+    }
+
+    public void writeactinitiallist() {
+        System.out.println("Introduce the start days of the activity separated by commas");
     }
 
     public void writeactprice() {

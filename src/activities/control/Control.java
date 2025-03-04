@@ -86,28 +86,31 @@ public class Control {
                         m.addact();
                         break;
                     case 4:
-                        m.delact();
+                        m.iteraddact();
                         break;
                     case 5:
-                        m.addpav();
+                        m.delact();
                         break;
                     case 6:
-                        m.delpav();
+                        m.addpav();
                         break;
                     case 7:
-                        m.listallusr();
+                        m.delpav();
                         break;
                     case 8:
-                        m.listallact();
+                        m.listallusr();
                         break;
                     case 9:
-                        m.listallpav();
+                        m.listallact();
                         break;
                     case 10:
+                        m.listallpav();
+                        break;
+                    case 11:
                         m.listactfreeplaces();
                         break;
                     // Exit option end the loop
-                    case 11:
+                    case 12:
                         end = true;
                         break;
                     // The selected option is not on the menu
