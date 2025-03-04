@@ -222,6 +222,26 @@ public class DBInteraction {
 		return data;
 	}
 
+	public ArrayList listUsersWithMinActivities(int minActivities) throws Exception { // TODO: Fix
+		String selection = "SELECT c.LOGIN, c.NAME, c.SURNAME " +
+						"FROM CLIENTS c " +
+						"JOIN SUBSCRIPTIONS s ON c.LOGIN = s.CLIENT_LOGIN " +
+						"GROUP BY c.LOGIN, c.NAME, c.SURNAME " +
+						"HAVING COUNT(s.ACTIVITY_ID) >= " + minActivities;
+		
+		ArrayList data = new ArrayList();
+		ResultSet rs = q.doSelect(selection);
+		
+		while (rs.next()) {
+			String userLogin = rs.getString(1);
+			String userName = rs.getString(2);
+			String userSurname = rs.getString(3);
+			data.add(new Client(userLogin, "", userName, userSurname, "", ""));
+		}
+		
+		return data;
+	}
+
 	//This method subscribes a client to a specific activity
       //(after checking that the activity has free places)
 	public void regactivity(String login, String id) throws Exception{

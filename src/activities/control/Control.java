@@ -101,16 +101,19 @@ public class Control {
                         m.listallusr();
                         break;
                     case 9:
-                        m.listallact();
+                        m.listUsersWithMinActivities();
                         break;
                     case 10:
-                        m.listallpav();
+                        m.listallact();
                         break;
                     case 11:
+                        m.listallpav();
+                        break;
+                    case 12:
                         m.listactfreeplaces();
                         break;
                     // Exit option end the loop
-                    case 12:
+                    case 13:
                         end = true;
                         break;
                     // The selected option is not on the menu

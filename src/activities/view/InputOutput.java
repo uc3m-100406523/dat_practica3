@@ -116,10 +116,11 @@ public class InputOutput {
         System.out.println("6. Add Pavillion");
         System.out.println("7. Delete Pavillion");
         System.out.println("8. List all Clients");
-        System.out.println("9. List all Activities");
-        System.out.println("10. List all Pavillions");
-        System.out.println("11. List the activities for which there are currently free places");
-        System.out.println("12. Exit the application");
+        System.out.println("9. List Clients with a minimum number of activities");
+        System.out.println("10. List all Activities");
+        System.out.println("11. List all Pavillions");
+        System.out.println("12. List the activities for which there are currently free places");
+        System.out.println("13. Exit the application");
     }
 
     public void writeClient() {

@@ -141,5 +141,23 @@ public class ManagerActions {
         data = db.listallpav();
         io.writePavArray(data);
     }
+
+    public void listUsersWithMinActivities() throws Exception {  // TODO: Fix
+        io.writemessage("Ingrese el número mínimo de actividades en común: ");
+        String minActivitiesStr = io.read();
+        int minActivities = Integer.parseInt(minActivitiesStr);
+
+        ArrayList data = db.listUsersWithMinActivities(minActivities);
+
+        if (data.isEmpty()) {
+            io.writemessage("No hay usuarios tengan el número mínimo de actividades especificado.");
+        } else {
+            io.writemessage("Usuarios con al menos " + minActivities + " actividades:");
+            for (Object obj : data) {
+                Client client = (Client) obj;
+                io.writemessage(client.getname() + " " + client.getsurname()); // Usar getname() y getsurname()
+            }
+        }
+    }
 }
 
