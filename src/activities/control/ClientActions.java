@@ -88,9 +88,9 @@ public class ClientActions {
 
     // Nuevo método para listar actividades entre dos fechas
     public void listactbydates() throws Exception {
-        io.write("Ingrese la fecha de inicio (YYYY-MM-DD): ");
+        io.writemessage("Ingrese la fecha de inicio (YYYY-MM-DD): ");
         String startDate = io.read();
-        io.write("Ingrese la fecha de fin (YYYY-MM-DD): ");
+        io.writemessage("Ingrese la fecha de fin (YYYY-MM-DD): ");
         String endDate = io.read();
 
         ArrayList data = db.listactbydates(startDate, endDate);
@@ -98,19 +98,19 @@ public class ClientActions {
     }
 
     public void listUsersWithMinCommonActivities(String login) throws Exception {
-        io.write("Ingrese el número mínimo de actividades en común: ");
+        io.writemessage("Ingrese el número mínimo de actividades en común: ");
         String minActivitiesStr = io.read();
         int minActivities = Integer.parseInt(minActivitiesStr);
 
         ArrayList data = db.listUsersWithMinCommonActivities(login, minActivities);
 
         if (data.isEmpty()) {
-            io.write("No hay usuarios que coincidan en el número mínimo de actividades especificado.");
+            io.writemessage("No hay usuarios que coincidan en el número mínimo de actividades especificado.");
         } else {
-            io.write("Usuarios con los que coincidís en al menos " + minActivities + " actividades:");
+            io.writemessage("Usuarios con los que coincidís en al menos " + minActivities + " actividades:");
             for (Object obj : data) {
                 Client client = (Client) obj;
-                io.write(client.getname() + " " + client.getsurname()); // Usar getname() y getsurname()
+                io.writemessage(client.getname() + " " + client.getsurname()); // Usar getname() y getsurname()
             }
         }
     }

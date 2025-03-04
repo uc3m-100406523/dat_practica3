@@ -184,7 +184,7 @@ public class InputOutput {
         System.out.println("Introduce the pavillion location");
     }
 
-    public void write(String message) {
+    public void writemessage(String message) {
         System.out.println(message);
 	}
 
