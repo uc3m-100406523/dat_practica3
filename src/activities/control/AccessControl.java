@@ -2,6 +2,7 @@ package activities.control;
 
 import activities.view.*;
 import activities.model.*;
+import java.security.MessageDigest;
 
 public class AccessControl {
 
@@ -23,6 +24,9 @@ public class AccessControl {
 
         boolean auth = false;
         InputOutput io = new InputOutput();
+
+        // Creates an MessageDigest object for computing password hashes
+        MessageDigest md = MessageDigest.getInstance("SHA-512");
 
         // In case the introduced option is for the manager
         if (option.equals("A")) {
@@ -48,7 +52,8 @@ public class AccessControl {
             // Print message to request the password
             io.writepwd();
             // Read the password
-            String pwd = io.read();
+            String rawpwd = io.read();
+            String pwd = md.digest(rawpwd.getBytes()).toString();
             // Interact with the database to know if the pair login/password exists in the CLIENTS table
             auth = db.authentication(login, pwd);
             if (auth == false) {

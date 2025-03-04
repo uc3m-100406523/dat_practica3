@@ -46,16 +46,15 @@ public class InputOutput {
 
     public void writeUsrArray(ArrayList data) {
         
-        System.out.println("LOGIN PASSWORD NAME SURNAME ADDRESS PHONE");
+        System.out.println("LOGIN NAME SURNAME ADDRESS PHONE");
         for (int i = 0; i < data.size(); i++) {
             Client c = (Client) data.get(i);
             String login = c.getlogin();
-            String password = c.getpassword();
             String name = c.getname();
             String surname = c.getsurname();
             String address = c.getaddress();
             String phone = c.getphone();
-            System.out.println(login + "  " + password + "  " + name + "  " + surname + "  " + address + "  " + phone);
+            System.out.println(login + "  " + name + "  " + surname + "  " + address + "  " + phone);
             System.out.println(" ");
         }
     }

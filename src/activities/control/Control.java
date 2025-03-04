@@ -2,6 +2,7 @@ package activities.control;
 
 import activities.view.*;
 import activities.model.*;
+import java.security.MessageDigest;
 
 public class Control {
 
@@ -22,6 +23,9 @@ public class Control {
         // Check the user selection: user, manager or registration as new user
         AccessControl ac = new AccessControl(db);
 
+        // Creates an MessageDigest object for computing password hashes
+        MessageDigest md = MessageDigest.getInstance("SHA-512");
+
         // A loop to be writing the initial menu until the selected option is A or B
         while (!((option.equals("A")) || (option.equals("B")))) {
             // Print the initial menu for the user
@@ -37,7 +41,8 @@ public class Control {
                 io.writelogin();
                 login = io.read();
                 io.writepwd();
-                String pwd = io.read();
+                String rawpwd = io.read();
+                String pwd = md.digest(rawpwd.getBytes()).toString();
                 io.writename();
                 String name = io.read();
                 io.writesurname();
