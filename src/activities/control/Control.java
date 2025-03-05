@@ -3,6 +3,7 @@ package activities.control;
 import activities.view.*;
 import activities.model.*;
 import java.security.MessageDigest;
+import java.nio.charset.StandardCharsets;
 
 public class Control {
 
@@ -24,7 +25,10 @@ public class Control {
         AccessControl ac = new AccessControl(db);
 
         // Creates an MessageDigest object for computing password hashes
-        MessageDigest md = MessageDigest.getInstance("SHA-512");
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+
+        // Creates an MessageDigest object for using utilities
+        Util util = new Util();
 
         // A loop to be writing the initial menu until the selected option is A or B
         while (!((option.equals("A")) || (option.equals("B")))) {
@@ -42,7 +46,8 @@ public class Control {
                 login = io.read();
                 io.writepwd();
                 String rawpwd = io.read();
-                String pwd = md.digest(rawpwd.getBytes()).toString();
+                md.update(rawpwd.getBytes(StandardCharsets.UTF_8));
+                String pwd = util.bytesToHex(md.digest());
                 io.writename();
                 String name = io.read();
                 io.writesurname();
