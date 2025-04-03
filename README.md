@@ -90,3 +90,21 @@ Finalmente, si un usuario introduce la opción C, la aplicación le pide su info
 Adicionalmente, como requisito de la práctica, la solución debe mostrar una clara separación entre el control, la vista en forma de texto, y el modelo de la base de datos. Esta modularidad facilita el reuso; de hecho en una próxima práctica (sobre JEE) reusaremos la parte de código relativa a la interacción con la base de datos para la aplicación basada en web.
 
 Para simplificar la práctica, reduciendo el código necesario para chequeo de errores, podéis suponer para todos los ejercicios a realizar que cuando se inserta una fila en la base de datos, esta fila no existía previamente (quien introduce los datos suponemos que ya tiene cuidado de hacerlo así). También podéis suponer que cuando se elimina una fila de la base de datos, esa fila existe en la base de datos (del mismo modo que antes quien introduce los datos suponemos que ya tiene cuidado de hacerlo así).
+
+## Despliegue
+
+### Acceso
+
+La clave de administrador está fijada a _manager_.
+
+### Base de datos
+
+El sistema requiere de una base de datos SQL en la que se guarda la información.
+El modelo de datos requerido puede crearse con las líneas indicadas en el fichero [`files/TABLE_CREATION.txt`](/files/TABLE_CREATION.txt).
+
+La base de datos debe configurarse con los siguientes parámetros:
+con las siguientes características:
+- Nombre: `sporting_manager`
+- URL: `jdbc:mysql://localhost/sporting_manager`
+- Usuario: `root`
+- Clave de acceso: `password`
