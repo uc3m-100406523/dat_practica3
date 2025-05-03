@@ -107,4 +107,4 @@ con las siguientes características:
 - Nombre: `sporting_manager`
 - URL: `jdbc:mysql://localhost/sporting_manager`
 - Usuario: `root`
-- Clave de acceso: `password`
+- Clave de acceso: `datuc3m`

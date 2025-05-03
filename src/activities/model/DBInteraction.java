@@ -23,7 +23,7 @@ public class DBInteraction {
         }
         try {
             System.out.println("Trying to connect...");
-            con = DriverManager.getConnection (url, "root", "password");
+            con = DriverManager.getConnection (url, "root", "datuc3m");
             System.out.println("Connected!");
 		}
 		catch(SQLException ex) {
